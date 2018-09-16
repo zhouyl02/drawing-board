@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Captain's canvas</title>
-	<link rel="icon" href="favicon.ico" type="image/ico">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>我的画板</title>
 	<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 	<aside>
-		<a download class="download">download</a>
-		<button class="reset">reset</button>
-		<button class="eraser">eraser</button>
-		<button class="brush">brush</button>
-		<button class="pen">pen</button>
-		<button class="pencil">pencil</button>
-		<input type="color" class="color">
+		<div class="left">
+			<input type="color" class="color">
+			<button class="brush">毛笔</button>
+			<button class="pen">钢笔</button>
+			<button class="pencil">铅笔</button>
+		</div>
+		<div class="right">
+			<a download class="download">下载图片</a>
+			<button class="reset">重画</button>
+			<button class="eraser">橡皮擦</button>	
+		</div>
 	</aside>
 	<canvas></canvas>
 	<script src="./script.js"></script>

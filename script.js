@@ -58,7 +58,7 @@ canvas.onmousemove = function(evt){
 	    		drow();
 	    	}; break;
 	    	case "eraser": {
-	    		ctx.clearRect(new_position.offsetX, new_position.offsetY - 10, 10,10);
+	    		ctx.clearRect(new_position.offsetX -10, new_position.offsetY - 10, 20,20);
 
 	    	}; break;
 	    	default: {
@@ -104,69 +104,40 @@ function selectTool(){
 	var download = document.querySelector(".download");
 	pencil.onclick = function(){
 		changeCanvasClassName("pencil");
-	};
-	pencil.onmouseenter = function(evt){
-		hoverChangeBackground(pencil,"铅笔");
-	}
-	pencil.onmouseleave = function(){
-		unhoverChangeBackground(pencil,"pencil");
+		pencil.classList.add('active');
+		pen.classList.remove('active');
+		brush.classList.remove('active');
+		eraser.classList.remove('active');
 	}
 	pen.onclick = function(){
 		changeCanvasClassName("pen");
-	};
-	pen.onmouseenter = function(){
-		hoverChangeBackground(pen,"钢笔");
-	};
-	pen.onmouseleave = function(){
-		unhoverChangeBackground(pen,"pen");
-	};
+		pen.classList.add('active');
+		pencil.classList.remove('active');
+		brush.classList.remove('active');
+		eraser.classList.remove('active');
+	}
 	brush.onclick = function(){
 		changeCanvasClassName("brush");
-	};
-	brush.onmouseenter = function(){
-		hoverChangeBackground(brush,"毛笔");
-	};
-	brush.onmouseleave = function(){
-		unhoverChangeBackground(brush,"brush");
-	};
+		brush.classList.add('active');
+		pencil.classList.remove('active');
+		pen.classList.remove('active');
+		eraser.classList.remove('active');
+	}
 	eraser.onclick = function(){
 		changeCanvasClassName("eraser");
-	}
-	eraser.onmouseenter = function(){
-		eraser.innerText = "橡皮擦";
-	}
-	eraser.onmouseleave = function(){
-		eraser.innerText = "eraser";
-	}
+		eraser.classList.add('active');
+		pencil.classList.remove('active');
+		brush.classList.remove('active');
+		pen.classList.remove('active');
+	};
 	reset.onclick = function(){
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 	}
-	reset.onmouseenter = function(){
-		reset.innerText = "清空画板";
-	}
-	reset.onmouseleave = function(){
-		reset.innerText = "reset";
-	}
+	
 	download.onclick = function(){
 		download.href = canvas.toDataURL();
 	}
-	download.onmouseenter = function(){
-		download.innerText = "下载图片";
-	}
-	download.onmouseleave = function(){
-		download.innerText = "download";
-	}
 	function changeCanvasClassName(className){
 		canvas.className = className;
-	}
-	function hoverChangeBackground(target,chinese){
-		target.style.background = color.value;
-		target.style.color = "#fff";
-		target.innerText = chinese;
-	}
-	function unhoverChangeBackground(target,english){
-		target.style.background = "#DCDCDC";
-		target.style.color = "#000";
-		target.innerText = english;
 	}
 }
